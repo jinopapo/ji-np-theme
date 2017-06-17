@@ -25,19 +25,17 @@
 
 <body <?php body_class(); ?>>
 	<header id="masthead" class="site-header" role="banner">
-
-       <?php
-    　　/*
-     　　*　ヘッダーの画像を表示
-     　　*/?>
-       <?php /*get_template_part( 'template-parts/header/header', 'image' );*/ ?>
-
 	   <?php if ( has_nav_menu( 'top' ) ) : ?>
-           <!--ヘッダーメニューがあればヘッダーを作る -->
+           <?php /*ヘッダーメニューがあればヘッダーを作る*/ ?>
 	       <div class="navigation-top">
 			   <?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
 		   </div>
 	   <?php endif; ?>
+
+       <?php
+           //ヘッダーの画像を表示
+           get_template_part( 'template-parts/header/header', 'image' );
+       ?>
 
 	</header>
 

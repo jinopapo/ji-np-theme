@@ -32,7 +32,8 @@ a {
 
 .main-navigation ul {
     height:100%;
-	  background: #fff;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
 	  list-style: none;
 	  margin: 0;
 	  padding: 0 1.5em;
@@ -57,6 +58,12 @@ a {
     width: 100%;
     height: 100%;
     margin: 40px auto;
+}
+
+.site-footer{
+    width:70vw;
+    margin:auto 15vw;
+    border-top: 1px solid #ddd;
 }
 
 .social-navigation{

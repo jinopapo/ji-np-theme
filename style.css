@@ -1,23 +1,62 @@
+/*全体*/
+body{
+    background-color: #f6f6f6;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.site-header{
+    margin: 40px 15vw;
+}
+
+.site-content-contain{
+    margin: 40px 15vw;
+    padding: 40px;
+    background-color: #fff;
+}
+
+
 .main-navigation {
 	clear: both;
 	display: block;
+  height: 10vh;
+}
+
+.main-navigation div{
+    height: 100%;
 }
 
 .main-navigation ul {
-	background: #fff;
-	list-style: none;
-	margin: 0;
-	padding: 0 1.5em;
-	text-align: left;
+    height:100%;
+	  background: #fff;
+	  list-style: none;
+	  margin: 0;
+	  padding: 0 1.5em;
+    text-align: justify;
 }
 
-body{
-    background-color: #E6E6E6
+.main-navigation ul li{
+	  display: inline-block;
+    height: 100%;
+    line-height: 10vh;
+    font-size: x-large;
+}
+
+.main-navigation ul:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 0;
 }
 
 .custom-header-media img{
     width: 100%;
     height: 100%;
+    margin: 40px auto;
 }
 
 .social-navigation{

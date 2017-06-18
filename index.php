@@ -18,22 +18,19 @@
 get_header(); ?>
 
 <main id="main" class="site-main" role="main">
+    <h2></h2>
+    <ul>
     <?php
-    if ( have_posts() ) :
-        /* 投稿全取得 */
-        while ( have_posts() ) : the_post();
-            get_template_part( 'template-parts/post/content', get_post_format() );
-endwhile;
-
-    the_posts_pagination( array(
-        'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-    ) );
-
-endif;
-?>
-
+    $args = array( 'posts_per_page' => 5, 'category' => 1 );
+    $myposts = get_posts( $args );
+    foreach ( $myposts as $post ) :
+        setup_postdata( $post ); ?>
+	    <li>
+            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+        </li>
+    <?php endforeach;
+    wp_reset_postdata(); ?>
+    </ul>
 </main>
 
 <?php get_footer();

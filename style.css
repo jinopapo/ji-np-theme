@@ -45,6 +45,7 @@ a {
     height: 100%;
     line-height: 10vh;
     font-size: x-large;
+    font-weight: bold;
 }
 
 .main-navigation ul:after {

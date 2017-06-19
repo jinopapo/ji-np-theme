@@ -54,15 +54,18 @@ a {
     height: 0;
 }
 
+.custom-header{
+    margin: 40px auto;
+}
+
 .custom-header-media img{
     width: 100%;
     height: 100%;
-    margin: 40px auto;
 }
 
 .site-footer{
     width:70vw;
-    margin:auto 15vw;
+    margin:40px 15vw;
     border-top: 1px solid #ddd;
 }
 

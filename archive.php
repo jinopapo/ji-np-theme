@@ -16,16 +16,22 @@ get_header(); ?>
 
 	<?php if ( have_posts() ) : ?>
 		<header class="page-header">
+            <h1 class="page-title">
 			<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="taxonomy-description">', '</div>' );
+                $cat_id = get_query_var( "cat" );
+                $cats = get_the_category();
+                foreach ( $cats as $cat ) :
+                    if ( $cat->term_id === $cat_id ) :
+                        echo $cat->cat_name;
+                    endif;
+                endforeach;
 			?>
+            </h1>
 		</header><!-- .page-header -->
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-
 		<?php
 		if ( have_posts() ) : ?>
 			<?php

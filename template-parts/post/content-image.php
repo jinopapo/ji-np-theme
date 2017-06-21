@@ -22,11 +22,9 @@
 		<?php
 			if ( 'post' === get_post_type() ) {
 				echo '<div class="entry-meta">';
-					if ( is_single() ) {
-						twentyseventeen_posted_on();
-					} else {
+					if ( !is_single() ) {
 						twentyseventeen_edit_link();
-					};
+					}
 				echo '</div><!-- .entry-meta -->';
 			};
 

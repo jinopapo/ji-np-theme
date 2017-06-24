@@ -134,3 +134,12 @@ a {
 .site-info{
     text-align: center;
 }
+
+/**
+ *story用
+ */
+
+.archive-image{
+    display: inline-block;
+    width: 10%;
+}

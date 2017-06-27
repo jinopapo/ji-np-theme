@@ -69,10 +69,4 @@
 
 	</div><!-- .entry-content -->
 
-	<?php
-	if ( is_single() ) {
-		twentyseventeen_entry_footer();
-	}
-	?>
-
 </article><!-- #post-## -->

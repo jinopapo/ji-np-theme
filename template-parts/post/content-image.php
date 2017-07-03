@@ -46,7 +46,7 @@
 		</div><!-- .post-thumbnail -->
 	<?php endif; ?>
 
-	<div class="entry-content">
+	<div class="image-entry-content">
 
 		<?php if ( is_single() || '' === get_the_post_thumbnail() ) {
 

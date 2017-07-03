@@ -145,6 +145,15 @@ a {
     width: 10%;
 }
 
+.image-entry-content{
+    text-align: center;
+}
+
+.image-entry-content .metaslider{
+    display: inline-block;
+    margin-bottom: 10vh;
+}
+
 /**
  * character用
  */

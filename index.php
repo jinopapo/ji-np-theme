@@ -18,15 +18,25 @@
 get_header(); ?>
 
 <main id="main" class="site-main" role="main">
+    aaaa
     <h2></h2>
     <ul>
     <?php
-    $args = array( 'posts_per_page' => 5, 'category' => 1 );
+    $args = array( 'posts_per_page' => 5 );
     $myposts = get_posts( $args );
     foreach ( $myposts as $post ) :
         setup_postdata( $post ); ?>
 	    <li>
-            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+            <div><?php the_time('m/d'); ?></div>
+            <div>
+                <?php
+                $cat = get_the_category($post->id);
+                echo $cat[0]->cat_name;
+                ?>
+            </div>
+            <a href="<?php the_permalink(); ?>">
+                 :<?php the_title(); ?>追加
+            </a>
         </li>
     <?php endforeach;
     wp_reset_postdata(); ?>

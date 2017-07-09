@@ -137,6 +137,22 @@ a {
 }
 
 /**
+ * トップページ
+ */
+.update div{
+    display: inline-block;
+}
+
+.update .date{
+    width: 5vw;
+}
+
+.update .title{
+    width: 8vw;
+    text-align: center;
+}
+
+/**
  *story用
  */
 
@@ -153,6 +169,7 @@ a {
     display: inline-block;
     margin-bottom: 10vh;
 }
+
 
 /**
  * character用

@@ -16,10 +16,20 @@
         'items_wrap'     => '%3$s',
         'container'      => false,
 	) ); ?>
-    <?php if (get_locale() == 'en_US') { ?>
-        <li class="lang-ja"><a href="<?php echo qtranxf_convertURL($current_url, 'ja', '', true);?>" hreflang="ja" title="日本語" class="qtranxs_image qtranxs_image_ja"><img src="<?php echo plugins_url('qtranslate-x'); ?>/flags/jp.png" alt="日本語" /><span style="display:none">日本語</span></a></li>
-    <?php } else if (get_locale() == 'ja') { ?>
-        <li class="lang-en"><a href="<?php echo qtranxf_convertURL($current_url, 'en','',  true);?>" hreflang="en" title="English" class="qtranxs_image qtranxs_image_en"><img src="<?php echo plugins_url('qtranslate-x'); ?>/flags/us.png" alt="English" /><span style="display:none">English</span></a></li>
-    <?php } ?>
+    <?php if (get_locale() == 'en_US') {
+        $jp_brightness = 50;
+        $en_brightness = 100;
+    } else if (get_locale() == 'ja') {
+        $jp_brightness = 100;
+        $en_brightness = 50;
+    }?>
+        <li>
+            <a href="<?php echo qtranxf_convertURL($current_url, 'ja', '', true);?>" hreflang="ja" title="日本語" class="qtranxs_image qtranxs_image_ja">
+                <img src="<?php echo plugins_url('qtranslate-x'); ?>/flags/jp.png" alt="日本語" style="filter:brightness(<?php echo $jp_brightness?>%);"/>
+            </a>
+            <a href="<?php echo qtranxf_convertURL($current_url, 'en','',  true);?>" hreflang="en" title="English" class="qtranxs_image qtranxs_image_en">
+                <img src="<?php echo plugins_url('qtranslate-x'); ?>/flags/us.png" alt="English" style="filter:brightness(<?php echo $en_brightness?>%)";/>
+            </a>
+        </li>
     </ul>
 </nav>

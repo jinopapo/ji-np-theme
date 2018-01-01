@@ -1,15 +1,17 @@
 <?php
 /**
- * Template part for displaying gallery posts
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * characterカテゴリーの一覧のテンプレート
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage ji-no-theme
  * @since 1.0
- * @version 1.2
+ * @version 1.1
  */
 
+?>
+
+<?php
+while ( have_posts() ) : the_post();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -50,3 +52,12 @@
 	?>
 
 </article><!-- #post-## -->
+<?php endwhile;?>
+<?php
+#ページ送りのリンクを表示
+    the_posts_pagination( array(
+        'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
+        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+    ) );
+?>

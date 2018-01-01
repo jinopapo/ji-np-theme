@@ -1,18 +1,16 @@
 <?php
 /**
- * Template part for displaying gallery posts
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * charcterの投稿ページで表示されるテンプレート
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage ji-no-theme
  * @since 1.0
- * @version 1.2
+ * @version 1.1
  */
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" >
 	<?php
 	if ( is_sticky() && is_home() ) {
 		echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );

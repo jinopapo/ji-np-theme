@@ -1,64 +1,48 @@
 <?php
 /**
- * The template for displaying archive pages
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * ヘッダーのリンクをクリックすると表示される基本的なページ
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage ji-no-theme
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 
 get_header(); ?>
 
 <div class="wrap">
 
-	<?php if ( have_posts() ) : ?>
-		<header class="page-header">
-            <h1 class="page-title">
-			<?php
-                $cat_id = get_query_var( "cat" );
-                $cats = get_the_category();
-                foreach ( $cats as $cat ) :
-                    if ( $cat->term_id === $cat_id ) :
-                        echo $cat->cat_name;
-                    endif;
-                endforeach;
+	<?php
+    if ( have_posts() ) :
+    ?>
+	<header class="page-header">
+        <h1 class="page-title">
+	        <?php
+            #カテゴリー名タイトルとして表示
+            $cat_id = get_query_var( "cat" );
+            $cats = get_the_category();
+            foreach ( $cats as $cat ) :
+                if ( $cat->term_id === $cat_id ) :
+                    echo $cat->name;
+                endif;
+            endforeach;
 			?>
-            </h1>
-		</header><!-- .page-header -->
+        </h1>
+	</header><!-- .page-header -->
 	<?php endif; ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-		<?php
-		if ( have_posts() ) : ?>
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-get_template_part( 'template-parts/post/content-archive', get_post_format() );
-
-			endwhile;
-
-			the_posts_pagination( array(
-				'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-			) );
-
-		else :
-
-			get_template_part( 'template-parts/post/content', 'none' );
-
-		endif; ?>
-
+     	    <?php
+            #投稿の有無を判定する。
+            #なかった場合は、coming soonを表示。
+            #あった場合は、template-parts/archive/content-{カテゴリー}を表示する。
+		    if ( have_posts() ) :
+                $cats = get_the_category();
+                get_template_part( 'template-parts/archive/content', $cats[0]->name);
+		    else :
+    			get_template_part( 'template-parts/archive/content', 'none' );
+    		endif; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 	<?php get_sidebar(); ?>

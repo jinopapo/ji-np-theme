@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * 個別投稿ページのデフォルトテンプレート
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -22,9 +22,7 @@
 		<?php
 		if ( 'post' === get_post_type() ) {
 			echo '<div class="entry-meta">';
-				if ( is_single() ) {
-					twentyseventeen_posted_on();
-				} else {
+				if ( !is_single() ) {
 					twentyseventeen_edit_link();
 				};
 			echo '</div><!-- .entry-meta -->';
@@ -56,19 +54,7 @@
 			get_the_title()
 		) );
 
-		wp_link_pages( array(
-			'before'      => '<div class="page-links">' . __( 'Pages:', 'twentyseventeen' ),
-			'after'       => '</div>',
-			'link_before' => '<span class="page-number">',
-			'link_after'  => '</span>',
-		) );
 		?>
 	</div><!-- .entry-content -->
-
-	<?php
-	if ( is_single() ) {
-		twentyseventeen_entry_footer();
-	}
-	?>
 
 </article><!-- #post-## -->

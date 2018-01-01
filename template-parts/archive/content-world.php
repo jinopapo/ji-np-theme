@@ -29,6 +29,7 @@ if ( have_posts() ){
 
 <?php
 #タグごとに記事を表示
+ksort($tags);
 foreach( $tags as $tag_title => $posts ){
     echo '<h2>' . $tag_title . '</h2>';
     echo '<ul>';

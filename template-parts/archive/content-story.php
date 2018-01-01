@@ -1,23 +1,18 @@
 <?php
 /**
- * Template part for displaying image posts
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
+ * sotryカテゴリー一覧のテンプレート
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage ji-no-thme
  * @since 1.0
- * @version 1.2
+ * @version 1.1
  */
 
 ?>
-
+<?php
+while ( have_posts() ) : the_post();
+?>
 <article class="archive-image" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		if ( is_sticky() && is_home() ) {
-			echo twentyseventeen_get_svg( array( 'icon' => 'thumb-tack' ) );
-		}
-	?>
 	<header class="entry-header">
 		<?php
 			if ( 'post' === get_post_type() ) {
@@ -53,3 +48,12 @@
 	?>
 
 </article><!-- #post-## -->
+<?php endwhile;?>
+<?php
+    #ページ送りのリンクを表示
+    the_posts_pagination( array(
+        'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
+        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
+        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
+    ) );
+?>

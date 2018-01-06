@@ -189,7 +189,7 @@ a {
     display: block;
 }
 
-article .category-characters{
+article.category-characters{
     width: 20%;
     height: 20%;
     display: inline-block;
@@ -198,7 +198,7 @@ article .category-characters{
 /**
  * art用
  */
-article .category-art{
+article.category-art{
     width: 20%;
     height: 20%;
     display: inline-block;

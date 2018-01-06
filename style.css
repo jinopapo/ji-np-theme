@@ -194,3 +194,12 @@ article.category-characters{
     height: 20%;
     display: inline-block;
 }
+
+/**
+ * art用
+ */
+article.category-art{
+    width: 20%;
+    height: 20%;
+    display: inline-block;
+}

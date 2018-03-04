@@ -456,6 +456,10 @@ function twentyseventeen_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+    //スマホ用のメニュー用js
+    wp_enqueue_script( 'header', get_theme_file_uri( '/assets/js/header.js' ), array( 'jquery' ), false, true );
+
 }
 add_action( 'wp_enqueue_scripts', 'twentyseventeen_scripts' );
 

@@ -1,15 +1,11 @@
 <?php
 /**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ * フッターのテンプレート
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage ji-no-theme
  * @since 1.0
- * @version 1.2
+ * @version 1.1
  */
 
 ?>
@@ -32,13 +28,14 @@
 	    ?>
 	    </nav>
 	<?php endif;
+
     //コピーライトとかのサイト情報のテンプレート呼び出し
 	get_template_part( 'template-parts/footer/site', 'info' );
 	?>
     </footer>
-<?php //プラグインが独自のjsを使っていたときに対応するために入れておく
-wp_footer();
-?>
+    <?php //プラグインが独自のjsを使っていたときに対応するために入れておく
+    wp_footer();
+    ?>
 
 </body>
 </html>

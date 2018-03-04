@@ -9,7 +9,10 @@
  */?>
 
 <nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'twentyseventeen' ); ?>">
-    <ul id="top-menu" class="menu">
+    <label id="nav-open">
+    <span></span>
+    </label>
+    <ul id="top-menu" class="menu menu-close">
 	<?php wp_nav_menu( array(
 		'theme_location' => 'top',
 		'menu_id'        => 'top-menu',
@@ -23,7 +26,7 @@
         $jp_brightness = 100;
         $en_brightness = 50;
     }?>
-        <li>
+        <li class="language-menu">
             <a href="<?php echo qtranxf_convertURL($current_url, 'ja', '', true);?>" hreflang="ja" title="日本語" class="qtranxs_image qtranxs_image_ja">
                 <img src="<?php echo plugins_url('qtranslate-x'); ?>/flags/jp.png" alt="日本語" style="filter:brightness(<?php echo $jp_brightness?>%);"/>
             </a>
